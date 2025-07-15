@@ -1,0 +1,288 @@
+<!--definicion, funcion, estructura, ventajas, desventajas, ejemplos en programacion-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Django Actiividad</title>
+        <meta name="description" content="Guía completa sobre Django: definición, función, estructura, ventajas, desventajas y ejemplos de programación">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                background: #f8f9fa;
+                min-height: 100vh;
+                position: relative;
+            }
+
+            main {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 2rem;
+                position: relative;
+            }
+
+            header {
+                text-align: center;
+                margin-bottom: 3rem;
+                position: relative;
+            }
+
+            header::after {
+                content: '';
+                position: absolute;
+                bottom: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100px;
+                height: 4px;
+                background: #13AACE;
+                border-radius: 2px;
+            }
+
+            h1 {
+                font-size: 3.5rem;
+                font-weight: 700;
+                color: #13AACE;
+                text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                margin-bottom: 1rem;
+            }
+
+            section {
+                background: white;
+                margin-bottom: 2rem;
+                border-radius: 20px;
+                padding: 2.5rem;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                position: relative;
+                overflow: hidden;
+            }
+
+            section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 5px;
+                background: #13AACE;
+            }
+
+            section:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+            }
+
+            h2 {
+                font-size: 2.2rem;
+                color: #13AACE;
+                margin-bottom: 1.5rem;
+                font-weight: 600;
+                position: relative;
+                padding-left: 20px;
+            }
+
+            h2::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 6px;
+                height: 30px;
+                background: #FF8711;
+                border-radius: 3px;
+            }
+
+            p {
+                font-size: 1.1rem;
+                margin-bottom: 1.2rem;
+                color: #444;
+                text-align: justify;
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            li {
+                background: rgba(19, 170, 206, 0.05);
+                margin-bottom: 0.8rem;
+                padding: 1rem 1.5rem;
+                border-radius: 12px;
+                border-left: 4px solid #13AACE;
+                font-size: 1.1rem;
+                position: relative;
+                overflow: hidden;
+            }
+
+            li::before {
+                content: '';
+                position: absolute;
+                left: -100%;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                background: rgba(255, 135, 17, 0.1);
+            }
+
+            li:hover {
+                background: rgba(19, 170, 206, 0.1);
+                transform: translateX(5px);
+                border-left-color: #FF8711;
+            }
+
+            li i {
+                color: #FF8711;
+                margin-left: 0.5rem;
+                font-size: 1.2rem;
+            }
+
+            footer {
+                background: #13AACE;
+                color: white;
+                text-align: center;
+                padding: 2rem;
+                margin-top: 3rem;
+                border-radius: 20px 20px 0 0;
+                box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+            }
+
+            footer p {
+                margin-bottom: 0.5rem;
+                font-size: 1rem;
+                color: white;
+            }
+
+            footer a {
+                color: white;
+                text-decoration: none;
+                font-weight: 600;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            footer a:hover {
+                color: #FF8711;
+            }
+
+            footer i {
+                font-size: 1.2rem;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                main {
+                    padding: 1rem;
+                }
+
+                h1 {
+                    font-size: 2.5rem;
+                }
+
+                h2 {
+                    font-size: 1.8rem;
+                }
+
+                section {
+                    padding: 1.5rem;
+                    margin-bottom: 1.5rem;
+                }
+
+                p, li {
+                    font-size: 1rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                h1 {
+                    font-size: 2rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+
+                section {
+                    padding: 1rem;
+                    border-radius: 15px;
+                }
+
+                li {
+                    padding: 0.8rem 1rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Acerca de Django</h1>
+            </header>
+            <section>
+                <h2>Definición</h2>
+                <p>Django es un framework de Python que facilita la creación de sitios web con Python.</p>
+                <p>Django se encarga de las tareas más complejas para que puedas concentrarte en crear tus aplicaciones web de manera eficiente y escalable.</p>
+            </section>
+            <section>
+                <h2>Función</h2>
+                <p>Django es un framework web que te permite crear aplicaciones web rápidamente y de forma sencilla.</p>
+                <p>Proporciona herramientas integradas para el desarrollo web como autenticación, administración de contenido, mapeo objeto-relacional (ORM) y generación automática de interfaces administrativas.</p>
+            </section>
+            <section>
+                <h2>Estructura</h2>
+                <p>Django sigue el patrón arquitectónico Model-View-Template (MVT), una variación del patrón MVC.</p>
+                <p>Se organiza en proyectos que contienen múltiples aplicaciones, cada una con su propio conjunto de modelos, vistas y plantillas.</p>
+                <p>Los componentes principales incluyen: models.py para la lógica de datos, views.py para la lógica de presentación, urls.py para el enrutamiento, y templates para la interfaz de usuario.</p>
+            </section>
+            <section>
+                <h2>Ventajas</h2>
+                <ul>
+                    <li>Desarrollo rápido con menos código</li>
+                    <li>Arquitectura escalable y mantenible</li>
+                    <li>Panel de administración automático</li>
+                    <li>ORM integrado para manejo de bases de datos</li>
+                    <li>Sistema de seguridad robusto</li>
+                    <li>Comunidad activa y documentación extensa</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Desventajas</h2>
+                <ul>
+                    <li>Curva de aprendizaje pronunciada para principiantes</li>
+                    <li>Puede ser excesivo para aplicaciones simples</li>
+                    <li>Estructura monolítica puede limitar flexibilidad</li>
+                    <li>ORM puede generar consultas SQL ineficientes</li>
+                    <li>Mayor consumo de recursos comparado con microframeworks</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Ejemplos en empresas</h2>
+                <ul>
+                    <li>Instagram <i class="bi bi-instagram"></i></li>
+                    <li>Pinterest <i class="bi bi-pinterest"></i></li>
+                    <li>Spotify <i class="bi bi-spotify"></i></li>
+                    <li>Mozilla <i class="bi bi-browser-firefox"></i></li>
+                    <li>Disqus <i class="bi bi-chat-fill"></i></li>
+                    <li>Prezi <i class="bi bi-file-earmark-ppt-fill"></i></li>
+                </ul>
+        </main>
+        <footer>
+            <p>Desarrollado por Sebastian Perilla Rodriguez</p>
+            <p>2025</p>
+            <p>GitHub: <a href="https://github.com/sebastianPR890"><i class="bi bi-github">CLICK</i></a></p>
+        </footer>
+    </body>
+</html>
